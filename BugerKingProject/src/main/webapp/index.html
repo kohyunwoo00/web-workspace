@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	h1{
+		color:skyblue; 
+		text-align:center; 
+		font-size:80px;
+		width : 700px;
+		height : 800px;
+		border : 1px dotted lightpink;
+		}
+		button{
+		width : 150px;
+		height : 40px;
+		font-weight : bold;
+		border : none;
+		background : blue;
+		color : white;
+		border-radius : 8px;
+		
+		&:hover{
+			 cursor : pointer;
+		}
+	}
+	
+</style>
+</head>
+<body>
+	<h1>하윙</h1>
+	<hr>
+	<script>
+		// console.log(location);
+		
+		// location 객체의 href 속성에 요청 URL을 대입
+		function forwardRequestpage(){
+			location.href = 'http://127.0.0.1/bk/static/Request_Page.html';
+		}
+		
+	</script>
+	
+	<button onclick ="forwardRequestpage()">주문하기</button>
+
+
+</body>
+</html>
