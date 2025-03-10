@@ -5,6 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>JSP문법 배우기</title>
+<style>
+	a{
+		text-decoration : none;
+		color : black;
+	}
+	
+</style>
 </head>
 <body>
 
@@ -17,5 +24,15 @@
 	</p>
 
 	<h3>1. EL구문 기본학습</h3>
+	<!-- 
+		절대 경로 방식 : /MDP/sc
+		상대 경로 방식 : sc		
+	 -->
+	<a href="sc"> 흠 </a>
+	
+	
+	
+	
+	
 </body>
 </html>
