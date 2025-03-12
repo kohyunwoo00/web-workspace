@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.kh.mfw.member.model.dto.MemberDTO;
 import com.kh.mfw.member.model.service.MemberService;
@@ -38,7 +39,31 @@ public class LoginController extends HttpServlet {
 		member.setMemberId(memberId);
 		member.setMemberPw(memberPw);
 		
-		new MemberService();
+		
+		MemberDTO loginMember = new MemberService().login(member);
+		// case 1. 아이디와 비밀번호값이 일치했다면 필드값에 회원저보가 담겨있는 MemeberDTO객체의 주소값
+		// case 2. 유효성검증에 통과하지 못했거나, 아이디 또는 비밀번호가 일치하지 않았다면 null값
+		System.out.println(loginMember);
+		
+		// 4) 응답화면 만들기
+		
+		// request.setAttribute("loginMember", loginMember);
+		/*
+		 * 로그인에 성공했다면 로드인 한 회원의 정보를
+		 * 로그아웃 요청이 들어오거나, 브라우저를 종료하기 전까지는 계속 사용할 수 있어야 하기 때문에
+		 * Session이라는 저장소에 값을 담아둘 것
+		 */
+		
+		// Session의 자료형 : HttpSession
+		HttpSession session = request.getSession();
+		session.setAttribute("loginMember", loginMember);
+		//request.getRequestDispatcher("index.jsp").forward(request, response);
+		
+		// http://localhost/mfw
+		// sendRedirect : Client에게 재 요청할 URL을 알려주어서
+		// Client가 다시 요청을 보내게 만드는 방법
+		String contextPath = request.getContextPath();
+		response.sendRedirect(contextPath); 
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

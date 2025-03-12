@@ -5,7 +5,7 @@ import com.kh.mfw.member.model.dto.MemberDTO;
 
 public class MemberService {
 	
-	public void login(MemberDTO member) {
+	public MemberDTO login(MemberDTO member) {
 		
 		/*
 		 * 로그인이라 함은 DB에가서 SELECT절에다가 사용자가 입력한 아이디값,비밀번호값을 조건절에
@@ -19,7 +19,8 @@ public class MemberService {
 		 * 서비스단에서 유효성검사하기
 		 */
 		
-		new MemberDAO().login();
+		MemberDTO loginMember = new MemberDAO().login(member);
+		return loginMember;
 		
 	}
 }
