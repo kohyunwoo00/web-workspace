@@ -20,7 +20,15 @@ public class MemberService {
 		 */
 		
 		MemberDTO loginMember = new MemberDAO().login(member);
-		return loginMember;
+		return loginMember;	
+	}
+	public int signUp(MemberDTO member) {
+		int result = new MemberDAO().checkId(member.getMemberId());
 		
+		if(result > 0) {
+			return result;
+		}
+		new MemberDAO().signUp(member);
+		return result;
 	}
 }
