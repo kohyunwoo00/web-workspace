@@ -24,15 +24,22 @@
     		<dataSource type ="POOLED">
     			<property name ="driver" value="oracle.jdbc.driver.OracleDriver"/>
     			<property name ="url" value="jdbc:oracle:thin:@112.221.156.34:12345:xe"/>
-    			<property name ="username" value="KH1_KHW"/>
+    			<property name ="username" value="KH01_KHW"/>
     			<property name ="password" value="KH1234"/>
-    		</dataSource>
+    		</dataSource>  
     	</environment>
    </environments>
   
+  	<!-- mappers : 실행할 SQL문을 기록해둔 mapper파일을 등록 -->
+  <mappers>
+  	<mapper resource="/mappers/member-mapper.xml"/>
+  </mappers>
   
-  
-  
+  <!-- typeAliases : 자바타입 별칭 짓기  -> 실수를 줄이기 위해-->
+  <typeAliases>
+  		<typeAlias type = "com.kh.mfw.member.model.dto.MemberDTO"  alias="memberDTO"/>
+  </typeAliases>
+    
   
   </configuration>
   

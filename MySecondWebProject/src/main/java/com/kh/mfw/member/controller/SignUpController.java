@@ -46,6 +46,15 @@ public class SignUpController extends HttpServlet {
 			path = request.getContextPath();
 		}	
 		*/
+		// "중복된 아이디가 존재합니다. 다른 아이디를 입력해주세요"	
+		//String msg = "중복된 아이디가 존재합니다. 다른 아이디를 입력해주세요";
+		//System.out.println(msg);
+		//request.setAttribute("mesage", "중복된 아이디가 존재합니다. 다른 아이디를 입력해주세요");
+		
+		if(result == 0) {
+			request.setAttribute("mesage", "중복된 아이디가 존재합니다. 다른 아이디를 입력해주세요");			
+		} 
+		
 		response.sendRedirect(result !=0 ? path + "/join" : path);
 	}
 
