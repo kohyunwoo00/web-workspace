@@ -47,7 +47,7 @@
   		 	  MEMBER_ID = #{ memberId }
   	</select>
   
-  	<insert id="signUp" parameterType="">
+  	<insert id="signUp" parameterType="memberDTO">
   		INSERT
   			  KH_MEMBER
   	    VELUES
